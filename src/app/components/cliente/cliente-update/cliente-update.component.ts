@@ -19,13 +19,17 @@ export class ClienteUpdateComponent implements OnInit {
     email: '',
     senha: '',
     perfis: [],
-    dataCriacao: ''
+    dataCriacao: '',
+    dataNascimento: '',
+    sexo: '',
   }
 
   nome: FormControl = new FormControl(null, Validators.minLength(3));
   cpf: FormControl = new FormControl(null, Validators.required);
   email: FormControl = new FormControl(null, Validators.email);
   senha: FormControl = new FormControl(null, Validators.minLength(3));
+  dataNascimento: FormControl = new FormControl(null, Validators.maxLength(10));
+  sexo: FormControl = new FormControl(null, Validators.maxLength(1));
 
   constructor(
     private service: ClienteService,

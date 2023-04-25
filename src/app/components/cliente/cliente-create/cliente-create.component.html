@@ -1,11 +1,11 @@
 <div class="container mat-elevation-z8">
     <form action="" class="form">
-        <h1 class="fullWidth">Cadastrar cliente</h1>
-        <img class="fullWidth" src="assets/img/usuario.png" alt="Help Desk - Dicas de um DEV">
+        <h1 class="fullWidth">Cadastrar usuário</h1>
+        <img class="fullWidth" src="assets/img/usuario.png">
 
         <section class="section">
             <mat-checkbox (click)="addPerfil(0)" class="margin" color="primary">Admin</mat-checkbox>
-            <mat-checkbox (click)="addPerfil(1)" class="margin" color="primary">Cliente</mat-checkbox>
+            <mat-checkbox (click)="addPerfil(1)" class="margin" color="primary">Usuario</mat-checkbox>
             
         </section>
 
@@ -63,11 +63,10 @@
           <mat-form-field class="fullWidth" appearance="legacy">
             <mat-label>Data de Nascimento</mat-label>
             <input 
-            [(ngModel)]="cliente.senha"
-            name="senha"
-            [formControl]="senha"
-            required
-            type="password" 
+            [(ngModel)]="cliente.dataNascimento"
+            name="dataNascimento"
+            [formControl]="dataNascimento"
+            required 
             matInput 
             placeholder="Ex. 01/01/2023">
             <mat-icon matSuffix>calendar_today</mat-icon>
@@ -76,11 +75,10 @@
           <mat-form-field class="fullWidth" appearance="legacy">
             <mat-label>Sexo</mat-label>
             <input 
-            [(ngModel)]="cliente.senha"
-            name="senha"
-            [formControl]="senha"
-            required
-            type="password" 
+            [(ngModel)]="cliente.sexo"
+            name="sexo"
+            [formControl]="sexo"
+            required 
             matInput 
             placeholder="Digite F ou M">
             <mat-icon matSuffix>android</mat-icon>

@@ -29,7 +29,7 @@ const routes: Routes = [
     { path: 'clientes/update/:id', component: ClienteUpdateComponent },
     { path: 'pedidos', component: PedidosComponent },
     { path: 'livros', component: LivrosComponent },
-    { path: 'clientes/delete/:id', component: ClienteDeleteComponent }
+    { path: 'clientes/delete/:id', component: ClienteDeleteComponent },
    
   ] }
 ];
