@@ -6,6 +6,6 @@ export interface Cliente {
     senha: string;
     perfis: string[];
     dataCriacao: any;
-    dataNascimento: string;
+    dataNascimento: Date;
     sexo: string;
 }

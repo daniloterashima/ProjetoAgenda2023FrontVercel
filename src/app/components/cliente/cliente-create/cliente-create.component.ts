@@ -20,7 +20,7 @@ export class ClienteCreateComponent implements OnInit {
     senha: '',
     perfis: [],
     dataCriacao: '',
-    dataNascimento: '',
+    dataNascimento: new Date(),
     sexo: '',
   }
 

@@ -12,12 +12,13 @@ mat-form-field {
 }
 
 button {
-    width: 100%;
+    width: 20%;
+    border-radius: 2rem;
 }
 
 h1 {
     width: 100%;
-    text-align: center;
+    text-align: left;
     margin-bottom: 2rem;
 }
 
