@@ -15,18 +15,21 @@ export class TecnicoCreateComponent implements OnInit {
   tecnico: Tecnico = {
     id: '',
     nome: '',
-    cpf: '',
-    email: '',
-    senha: '',
-    perfis: [],
-    dataCriacao: ''
+    comentario: '',
+    dataCriacao: new Date(),
+    dataConclusao: new Date(),
+    perfis: []
   }
 
   nome: FormControl = new FormControl(null, Validators.minLength(3));
-  cpf: FormControl = new FormControl(null, Validators.required);
+  comentario: FormControl = new FormControl(null, Validators.minLength(3));
   email: FormControl = new FormControl(null, Validators.email);
   senha: FormControl = new FormControl(null, Validators.minLength(3));
+  dataCriacao: FormControl = new FormControl(null, Validators.minLength(3));
+  dataConclusao: FormControl = new FormControl(null, Validators.minLength(3));
 
+
+  
   constructor(
     private service: TecnicoService,
     private toast: ToastrService,
@@ -37,7 +40,7 @@ export class TecnicoCreateComponent implements OnInit {
   }
 
   validaCampos(): boolean {
-    return this.nome.valid && this.cpf.valid && this.email.valid && this.senha.valid;
+    return this.nome.valid && this.email.valid && this.senha.valid;
   }
   
   addPerfil(perfil: any): void{

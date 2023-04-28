@@ -14,11 +14,10 @@ export class TecnicoDeleteComponent implements OnInit {
   tecnico: Tecnico = {
     id: '',
     nome: '',
-    cpf: '',
-    email: '',
-    senha: '',
-    perfis: [],
-    dataCriacao: ''
+    comentario: '',
+    dataCriacao: new Date(),
+    dataConclusao: new Date(),
+    perfis: []
   }
 
   constructor(
