@@ -2,17 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Cliente } from 'src/app/models/cliente';
-import { ClienteService } from 'src/app/services/cliente.service';
+import { Usuario } from 'src/app/models/usuario';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
-  selector: 'app-cliente-update',
-  templateUrl: './cliente-update.component.html',
-  styleUrls: ['./cliente-update.component.css']
+  selector: 'app-usuario-update',
+  templateUrl: './usuario-update.component.html',
+  styleUrls: ['./usuario-update.component.css']
 })
-export class ClienteUpdateComponent implements OnInit {
+export class UsuarioUpdateComponent implements OnInit {
 
-  cliente: Cliente = {
+  usuario: Usuario = {
     id: '',
     nome: '',
     cpf: '',
@@ -32,21 +32,21 @@ export class ClienteUpdateComponent implements OnInit {
   sexo: FormControl = new FormControl(null, Validators.maxLength(1));
 
   constructor(
-    private service: ClienteService,
+    private service: UsuarioService,
     private toast: ToastrService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.cliente.id = this.route.snapshot.paramMap.get('id');
+    this.usuario.id = this.route.snapshot.paramMap.get('id');
     this.findById();
   }
 
   findById(): void {
-    this.service.findById(this.cliente.id).subscribe(resposta => {
+    this.service.findById(this.usuario.id).subscribe(resposta => {
       resposta.perfis = [];
-      this.cliente = resposta;
+      this.usuario = resposta;
     })
   }
 
@@ -55,17 +55,17 @@ export class ClienteUpdateComponent implements OnInit {
   }
   
   addPerfil(perfil: any): void{
-    if (this.cliente.perfis.includes(perfil)){
-      this.cliente.perfis.splice(this.cliente.perfis.indexOf(perfil), 1)
+    if (this.usuario.perfis.includes(perfil)){
+      this.usuario.perfis.splice(this.usuario.perfis.indexOf(perfil), 1)
     } else {
-      this.cliente.perfis.push(perfil);
+      this.usuario.perfis.push(perfil);
     }
   }
 
   update(): void {
-    this.service.update(this.cliente).subscribe(() => {
-      this.toast.success('Cliente atualizado com sucesso', 'Update');
-      this.router.navigate(['clientes'])
+    this.service.update(this.usuario).subscribe(() => {
+      this.toast.success('usuario atualizado com sucesso', 'Update');
+      this.router.navigate(['usuarios'])
     }, ex => {
       console.log(ex);
       if(ex.error.errors){

@@ -6,7 +6,7 @@
       <mat-form-field class="fullWidth" appearance="legacy">
         <mat-label>Título da Tarefa</mat-label>
         <input
-        [(ngModel)]="tecnico.nome"
+        [(ngModel)]="tarefa.nome"
         name="nome"
         [formControl]="nome"
         required 
@@ -19,7 +19,7 @@
       <mat-form-field class="fullWidth" appearance="legacy">
         <mat-label>Breve comentário</mat-label>
         <input 
-        [(ngModel)]="tecnico.comentario"
+        [(ngModel)]="tarefa.comentario"
         name="comentario"
         [formControl]="comentario"
         required
@@ -32,7 +32,7 @@
       <mat-form-field class="fullWidth" appearance="legacy">
         <mat-label>Data de Criação</mat-label>
         <input 
-        [(ngModel)]="tecnico.dataCriacao"
+        [(ngModel)]="tarefa.dataCriacao"
         name="dataCriacao"
         [formControl]="dataCriacao"
         required
@@ -44,7 +44,7 @@
       <mat-form-field class="fullWidth" appearance="legacy">
         <mat-label>Data de Conclusão</mat-label>
         <input 
-        [(ngModel)]="tecnico.dataConclusao"
+        [(ngModel)]="tarefa.dataConclusao"
         name="dataConclusao"
         [formControl]="dataConclusao"
         required

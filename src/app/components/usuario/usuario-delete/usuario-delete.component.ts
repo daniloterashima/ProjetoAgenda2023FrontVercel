@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Cliente } from 'src/app/models/cliente';
-import { ClienteService } from 'src/app/services/cliente.service';
+import { Usuario } from 'src/app/models/usuario';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
-  selector: 'app-cliente-delete',
-  templateUrl: './cliente-delete.component.html',
-  styleUrls: ['./cliente-delete.component.css']
+  selector: 'app-usuario-delete',
+  templateUrl: './usuario-delete.component.html',
+  styleUrls: ['./usuario-delete.component.css']
 })
-export class ClienteDeleteComponent implements OnInit {
+export class UsuarioDeleteComponent implements OnInit {
 
-  cliente: Cliente = {
+  usuario: Usuario = {
     id: '',
     nome: '',
     cpf: '',
@@ -24,28 +24,28 @@ export class ClienteDeleteComponent implements OnInit {
   }
 
   constructor(
-    private service: ClienteService,
+    private service: UsuarioService,
     private toast: ToastrService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.cliente.id = this.route.snapshot.paramMap.get('id');
+    this.usuario.id = this.route.snapshot.paramMap.get('id');
     this.findById();
   }
 
   findById(): void {
-    this.service.findById(this.cliente.id).subscribe(resposta => {
+    this.service.findById(this.usuario.id).subscribe(resposta => {
       resposta.perfis = [];
-      this.cliente = resposta;
+      this.usuario = resposta;
     })
   }
   
   delete(): void {
-    this.service.delete(this.cliente.id).subscribe(() => {
-      this.toast.success('Cliente deletado com sucesso', 'Delete');
-      this.router.navigate(['clientes'])
+    this.service.delete(this.usuario.id).subscribe(() => {
+      this.toast.success('Usuario deletado com sucesso', 'Delete');
+      this.router.navigate(['usuarios'])
     }, ex => {
       console.log(ex);
       if(ex.error.errors){

@@ -1,4 +1,4 @@
-export interface Tecnico {
+export interface Tarefa {
     id?: any;
     nome: string;
     comentario: string;
