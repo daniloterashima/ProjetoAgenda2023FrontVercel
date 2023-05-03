@@ -2,17 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Cliente } from 'src/app/models/cliente';
-import { ClienteService } from 'src/app/services/cliente.service';
+import { Usuario } from 'src/app/models/usuario';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
-  selector: 'app-cliente-create',
-  templateUrl: './cliente-create.component.html',
-  styleUrls: ['./cliente-create.component.css']
+  selector: 'app-usuario-create',
+  templateUrl: './usuario-create.component.html',
+  styleUrls: ['./usuario-create.component.css']
 })
-export class ClienteCreateComponent implements OnInit {
+export class UsuarioCreateComponent implements OnInit {
 
-  cliente: Cliente = {
+  usuario: Usuario = {
     id: '',
     nome: '',
     cpf: '',
@@ -33,7 +33,7 @@ export class ClienteCreateComponent implements OnInit {
 
 
   constructor(
-    private service: ClienteService,
+    private service: UsuarioService,
     private toast: ToastrService,
     private router: Router
   ) { }
@@ -46,17 +46,17 @@ export class ClienteCreateComponent implements OnInit {
   }
   
   addPerfil(perfil: any): void{
-    if (this.cliente.perfis.includes(perfil)){
-      this.cliente.perfis.splice(this.cliente.perfis.indexOf(perfil), 1)
+    if (this.usuario.perfis.includes(perfil)){
+      this.usuario.perfis.splice(this.usuario.perfis.indexOf(perfil), 1)
     } else {
-      this.cliente.perfis.push(perfil);
+      this.usuario.perfis.push(perfil);
     }
   }
 
   create(): void {
-    this.service.create(this.cliente).subscribe(() => {
+    this.service.create(this.usuario).subscribe(() => {
       this.toast.success('Parabéns Usuário cadastrado com sucesso', 'Cadastro');
-      this.router.navigate(['clientes'])
+      this.router.navigate(['usuarios'])
     }, ex => {
       console.log(ex);
       if(ex.error.errors){

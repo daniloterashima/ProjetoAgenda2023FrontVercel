@@ -2,17 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Tecnico } from 'src/app/models/tecnico';
-import { TecnicoService } from 'src/app/services/tecnico.service';
+import { Tarefa } from 'src/app/models/tarefa';
+import { TarefaService } from 'src/app/services/tarefa.service';
 
 @Component({
-  selector: 'app-tecnico-create',
-  templateUrl: './tecnico-create.component.html',
-  styleUrls: ['./tecnico-create.component.css']
+  selector: 'app-tarefa-create',
+  templateUrl: './tarefa-create.component.html',
+  styleUrls: ['./tarefa-create.component.css']
 })
-export class TecnicoCreateComponent implements OnInit {
+export class TarefaCreateComponent implements OnInit {
 
-  tecnico: Tecnico = {
+  tarefa: Tarefa = {
     id: '',
     nome: '',
     comentario: '',
@@ -31,7 +31,7 @@ export class TecnicoCreateComponent implements OnInit {
 
   
   constructor(
-    private service: TecnicoService,
+    private service: TarefaService,
     private toast: ToastrService,
     private router: Router
   ) { }
@@ -44,17 +44,17 @@ export class TecnicoCreateComponent implements OnInit {
   }
   
   addPerfil(perfil: any): void{
-    if (this.tecnico.perfis.includes(perfil)){
-      this.tecnico.perfis.splice(this.tecnico.perfis.indexOf(perfil), 1)
+    if (this.tarefa.perfis.includes(perfil)){
+      this.tarefa.perfis.splice(this.tarefa.perfis.indexOf(perfil), 1)
     } else {
-      this.tecnico.perfis.push(perfil);
+      this.tarefa.perfis.push(perfil);
     }
   }
 
   create(): void {
-    this.service.create(this.tecnico).subscribe(() => {
+    this.service.create(this.tarefa).subscribe(() => {
       this.toast.success('Técnico cadastrado com sucesso', 'Cadastro');
-      this.router.navigate(['tecnicos'])
+      this.router.navigate(['tarefas'])
     }, ex => {
       console.log(ex);
       if(ex.error.errors){

@@ -2,17 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Tecnico } from 'src/app/models/tecnico';
-import { TecnicoService } from 'src/app/services/tecnico.service';
+import { Tarefa } from 'src/app/models/tarefa';
+import { TarefaService } from 'src/app/services/tarefa.service';
 
 @Component({
-  selector: 'app-tecnico-update',
-  templateUrl: './tecnico-update.component.html',
-  styleUrls: ['./tecnico-update.component.css']
+  selector: 'app-tarefa-update',
+  templateUrl: './tarefa-update.component.html',
+  styleUrls: ['./tarefa-update.component.css']
 })
-export class TecnicoUpdateComponent implements OnInit {
+export class TarefaUpdateComponent implements OnInit {
 
-  tecnico: Tecnico = {
+  tarefa: Tarefa = {
     id: '',
     nome: '',
     comentario: '',
@@ -28,21 +28,21 @@ export class TecnicoUpdateComponent implements OnInit {
   dataConclusao: FormControl = new FormControl(null, Validators.minLength(3));
 
   constructor(
-    private service: TecnicoService,
+    private service: TarefaService,
     private toast: ToastrService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.tecnico.id = this.route.snapshot.paramMap.get('id');
+    this.tarefa.id = this.route.snapshot.paramMap.get('id');
     this.findById();
   }
 
   findById(): void {
-    this.service.findById(this.tecnico.id).subscribe(resposta => {
+    this.service.findById(this.tarefa.id).subscribe(resposta => {
       resposta.perfis = [];
-      this.tecnico = resposta;
+      this.tarefa = resposta;
     })
   }
 
@@ -51,17 +51,17 @@ export class TecnicoUpdateComponent implements OnInit {
   }
   
   addPerfil(perfil: any): void{
-    if (this.tecnico.perfis.includes(perfil)){
-      this.tecnico.perfis.splice(this.tecnico.perfis.indexOf(perfil), 1)
+    if (this.tarefa.perfis.includes(perfil)){
+      this.tarefa.perfis.splice(this.tarefa.perfis.indexOf(perfil), 1)
     } else {
-      this.tecnico.perfis.push(perfil);
+      this.tarefa.perfis.push(perfil);
     }
   }
 
   update(): void {
-    this.service.update(this.tecnico).subscribe(() => {
+    this.service.update(this.tarefa).subscribe(() => {
       this.toast.success('Técnico atualizado com sucesso', 'Update');
-      this.router.navigate(['tecnicos'])
+      this.router.navigate(['tarefas'])
     }, ex => {
       console.log(ex);
       if(ex.error.errors){
