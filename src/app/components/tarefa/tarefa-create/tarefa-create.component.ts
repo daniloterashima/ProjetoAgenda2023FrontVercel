@@ -53,8 +53,8 @@ export class TarefaCreateComponent implements OnInit {
 
   create(): void {
     this.service.create(this.tarefa).subscribe(() => {
-      this.toast.success('Técnico cadastrado com sucesso', 'Cadastro');
-      this.router.navigate(['tarefas'])
+      this.toast.success('Tarefa criada com sucesso!', 'Cadastro');
+      this.router.navigate(['tarefa'])
     }, ex => {
       console.log(ex);
       if(ex.error.errors){

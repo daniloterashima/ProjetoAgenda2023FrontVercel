@@ -55,8 +55,8 @@ export class UsuarioCreateComponent implements OnInit {
 
   create(): void {
     this.service.create(this.usuario).subscribe(() => {
-      this.toast.success('Parabéns Usuário cadastrado com sucesso', 'Cadastro');
-      this.router.navigate(['usuarios'])
+      this.toast.success('Parabéns Usuário cadastrado com sucesso!', 'Cadastro');
+      this.router.navigate(['usuario'])
     }, ex => {
       console.log(ex);
       if(ex.error.errors){

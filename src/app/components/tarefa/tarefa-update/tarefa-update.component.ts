@@ -60,7 +60,7 @@ export class TarefaUpdateComponent implements OnInit {
 
   update(): void {
     this.service.update(this.tarefa).subscribe(() => {
-      this.toast.success('Técnico atualizado com sucesso', 'Update');
+      this.toast.success('Tarefa atualizada com sucesso', 'Update');
       this.router.navigate(['tarefas'])
     }, ex => {
       console.log(ex);

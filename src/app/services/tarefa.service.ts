@@ -12,23 +12,23 @@ export class TarefaService {
   constructor(private http: HttpClient) { }
 
   findById(id: any): Observable<Tarefa> {
-    return this.http.get<Tarefa>(`${API_CONFIG.baseUrl}/tarefas/${id}`)
+    return this.http.get<Tarefa>(`${API_CONFIG.baseUrl}/tarefa/${id}`)
   }
 
   findAll(): Observable<Tarefa[]> {
-    return this.http.get<Tarefa[]>(`${API_CONFIG.baseUrl}/tarefas`);
+    return this.http.get<Tarefa[]>(`${API_CONFIG.baseUrl}/tarefa`);
   }
 
   create(tarefa: Tarefa): Observable<Tarefa> {
-    return this.http.post<Tarefa>(`${API_CONFIG.baseUrl}/tarefas`, tarefa);
+    return this.http.post<Tarefa>(`${API_CONFIG.baseUrl}/tarefa`, tarefa);
   }
 
   update(tarefa: Tarefa): Observable<Tarefa> {
-    return this.http.put<Tarefa>(`${API_CONFIG.baseUrl}/tarefas/${tarefa.id}`, tarefa);
+    return this.http.put<Tarefa>(`${API_CONFIG.baseUrl}/tarefa/${tarefa.id}`, tarefa);
   }
 
   delete(id: any): Observable<Tarefa> {
-    return this.http.delete<Tarefa>(`${API_CONFIG.baseUrl}/tarefas/${id}`)
+    return this.http.delete<Tarefa>(`${API_CONFIG.baseUrl}/tarefa/${id}`)
   }
 
 }

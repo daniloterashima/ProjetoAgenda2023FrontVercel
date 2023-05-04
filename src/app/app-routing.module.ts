@@ -12,6 +12,8 @@ import { NavComponent } from './components/nav/nav.component';
 import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { TarefaDeleteComponent } from './components/tarefa/tarefa-delete/tarefa-delete.component';
 import { TarefaUpdateComponent } from './components/tarefa/tarefa-update/tarefa-update.component';
+import { TarefaListComponent } from './components/tarefa/tarefa-list/tarefa-list.component';
+import { TarefaCreateComponent } from './components/tarefa/tarefa-create/tarefa-create.component';
 
 //criação de rota para os menus segue abaixo
 const routes: Routes = [
@@ -26,7 +28,8 @@ const routes: Routes = [
     { path: 'pedidos', component: PedidosComponent },
     { path: 'livros', component: LivrosComponent },
     { path: 'usuario/delete/:id', component: UsuarioDeleteComponent },
-    { path: 'tarefa', component: PedidosComponent },
+    { path: 'tarefa', component: TarefaListComponent },
+    { path: 'tarefa/create', component: TarefaCreateComponent },
     
    
   ] }
