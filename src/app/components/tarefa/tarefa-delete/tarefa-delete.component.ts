@@ -15,6 +15,7 @@ export class TarefaDeleteComponent implements OnInit {
     id: '',
     nome: '',
     comentario: '',
+    usuario: '',
     dataCriacao: new Date(),
     dataConclusao: new Date(),
     perfis: []
@@ -41,7 +42,7 @@ export class TarefaDeleteComponent implements OnInit {
   
   delete(): void {
     this.service.delete(this.tarefa.id).subscribe(() => {
-      this.toast.success('Tarefa deletada com sucesso', 'Delete');
+      this.toast.success('Tarefa excluída com sucesso', 'Delete');
       this.router.navigate(['tarefa'])
     }, ex => {
       console.log(ex);

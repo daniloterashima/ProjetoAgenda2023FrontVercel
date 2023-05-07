@@ -28,7 +28,7 @@ export class UsuarioCreateComponent implements OnInit {
   cpf: FormControl = new FormControl(null, Validators.required);
   email: FormControl = new FormControl(null, Validators.email);
   senha: FormControl = new FormControl(null, Validators.minLength(3));
-  dataNascimento: FormControl = new FormControl(null, Validators.maxLength(10));
+  dataNascimento: FormControl = new FormControl(null, Validators.minLength(1));
   sexo: FormControl = new FormControl(null, Validators.maxLength(1));
 
 

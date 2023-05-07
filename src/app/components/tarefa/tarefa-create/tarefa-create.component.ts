@@ -16,6 +16,7 @@ export class TarefaCreateComponent implements OnInit {
     id: '',
     nome: '',
     comentario: '',
+    usuario: '',
     dataCriacao: new Date(),
     dataConclusao: new Date(),
     perfis: []
@@ -23,6 +24,7 @@ export class TarefaCreateComponent implements OnInit {
 
   nome: FormControl = new FormControl(null, Validators.minLength(3));
   comentario: FormControl = new FormControl(null, Validators.minLength(3));
+  usuario: FormControl = new FormControl(null, Validators.minLength(3));
   email: FormControl = new FormControl(null, Validators.email);
   senha: FormControl = new FormControl(null, Validators.minLength(3));
   dataCriacao: FormControl = new FormControl(null, Validators.minLength(3));
@@ -53,7 +55,7 @@ export class TarefaCreateComponent implements OnInit {
 
   create(): void {
     this.service.create(this.tarefa).subscribe(() => {
-      this.toast.success('Tarefa criada com sucesso!', 'Cadastro');
+      this.toast.success('Tarefa adicionada com sucesso!', 'Cadastro');
       this.router.navigate(['tarefa'])
     }, ex => {
       console.log(ex);

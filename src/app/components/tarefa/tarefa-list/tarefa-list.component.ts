@@ -13,7 +13,7 @@ export class TarefaListComponent implements OnInit {
 
   ELEMENT_DATA: Tarefa[] = [];
   
-  displayedColumns: string[] = ['id', 'nome', 'comentario','dataCriacao', 'dataConclusao', 'acoes'];
+  displayedColumns: string[] = ['id', 'nome', 'comentario','usuario', 'dataCriacao', 'dataConclusao', 'acoes'];
   dataSource = new MatTableDataSource<Tarefa>(this.ELEMENT_DATA);
   
   @ViewChild(MatPaginator) paginator: MatPaginator;

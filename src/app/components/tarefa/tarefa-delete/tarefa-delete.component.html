@@ -16,35 +16,43 @@
         </mat-form-field>
 
         <mat-form-field class="fullWidth" appearance="legacy">
-          <mat-label>CPF</mat-label>
+          <mat-label>Breve comentário</mat-label>
           <input 
           [(ngModel)]="tarefa.comentario"
           name="comentario"
           [disabled]="true"
-          matInput 
-          mask="000.000.000-00">
+          matInput >
           <mat-icon matSuffix>pin</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="fullWidth" appearance="legacy">
-          <mat-label>E-mail</mat-label>
+          <mat-label>Usuário</mat-label>
+          <input 
+          [(ngModel)]="tarefa.usuario"
+          name="usuario"
+          [disabled]="true"
+          matInput >
+          <mat-icon matSuffix>pin</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="fullWidth" appearance="legacy">
+          <mat-label>Data de Início</mat-label>
           <input 
           [(ngModel)]="tarefa.dataCriacao"
           name="dataCriacao"
           [disabled]="true"
           matInput >
-          <mat-icon matSuffix>email</mat-icon>
+          <mat-icon matSuffix>calendar_today</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="fullWidth" appearance="legacy">
-          <mat-label>Senha</mat-label>
+          <mat-label>Data Conclusão</mat-label>
           <input 
           [(ngModel)]="tarefa.dataConclusao"
           name="dataConclusao"
           [disabled]="true"
-          type="password" 
           matInput >
-          <mat-icon matSuffix>password</mat-icon>
+          <mat-icon matSuffix>offline_pin</mat-icon>
         </mat-form-field>
 
         <button (click)="delete()" mat-flat-button class="fullWidth" color="warn">Deletar</button>

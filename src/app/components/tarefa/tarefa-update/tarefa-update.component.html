@@ -25,29 +25,41 @@
         required
         matInput 
         placeholder="Ex: Solicitar ao Danilo que busque chocolate no mercado em 12/12/2023"
-        mask="000.000.000-00">
+        maxlength="50">
         <mat-icon matSuffix>description</mat-icon>
       </mat-form-field>
 
       <mat-form-field class="fullWidth" appearance="legacy">
-        <mat-label>Data de Criação</mat-label>
+        <mat-label>Usuário</mat-label>
+        <input 
+        [(ngModel)]="tarefa.usuario"
+        name="usuario"
+        [formControl]="usuario"
+        required
+        matInput 
+        placeholder="Ex: Digite o nome do usuário responsável pela tarefa"
+        maxlength="50">
+        <mat-icon matSuffix>description</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="fullWidth" appearance="legacy">
+        <mat-label>Data de Início</mat-label>
         <input 
         [(ngModel)]="tarefa.dataCriacao"
         name="dataCriacao"
         [formControl]="dataCriacao"
         required
         matInput 
-        placeholder="Será gerada a data de início">
+        placeholder="Por favor informar a data de início da tarefa">
         <mat-icon matSuffix>calendar_today</mat-icon>
       </mat-form-field>
 
       <mat-form-field class="fullWidth" appearance="legacy">
-        <mat-label>Data de Conclusão</mat-label>
+        <mat-label>Data Conclusão</mat-label>
         <input 
         [(ngModel)]="tarefa.dataConclusao"
         name="dataConclusao"
         [formControl]="dataConclusao"
-        required
         matInput 
         placeholder="Por favor informar a data de conclusão da tarefa">
         <mat-icon matSuffix>offline_pin</mat-icon>
