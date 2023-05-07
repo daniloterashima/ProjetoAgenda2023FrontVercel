@@ -50,6 +50,26 @@
             <mat-icon matSuffix>password</mat-icon>
           </mat-form-field>
 
+          <mat-form-field class="fullWidth" appearance="legacy">
+            <mat-label>Data de Nascimento</mat-label>
+            <input 
+            [(ngModel)]="usuario.dataNascimento"
+            name="dataNascimento"
+            [disabled]="true"
+            matInput >
+            <mat-icon matSuffix>calendar_today</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="fullWidth" appearance="legacy">
+            <mat-label>Sexo</mat-label>
+            <input 
+            [(ngModel)]="usuario.sexo"
+            name="sexo"
+            [disabled]="true"
+            matInput >
+            <mat-icon matSuffix>android</mat-icon>
+          </mat-form-field>
+
           <button (click)="delete()" mat-flat-button class="fullWidth" color="warn">Deletar</button>
           <button routerLink="../../" mat-stroked-button class="fullWidth" color="warn">Cancelar</button>
     </form>
